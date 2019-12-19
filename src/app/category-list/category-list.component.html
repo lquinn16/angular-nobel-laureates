@@ -2,21 +2,27 @@
 
 <!-- Make backend API request to retrieve winners -->
 <div class="buttons">
-  <a [routerLink]="['/']" class="button"><i class="fa fa-book"></i>Literature</a>
-  <a [routerLink]="['/']" class="button"><i class="fa fa-atom"></i>Physics</a>
-  <a [routerLink]="['/']" class="button"><i class="fa fa-flask"></i>Chemistry</a>
-  <a [routerLink]="['/']" class="button"><i class="fa fa-dove"></i>Peace</a>
-  <a [routerLink]="['/']" class="button"><i class="fa fa-funnel-dollar"></i>Economics</a>
-  <a [routerLink]="['/']" class="button"><i class="fa fa-pills"></i>Physiology & Medicine</a>
+  <a [routerLink]="['/category/literature']" class="button"><i class="fa fa-book"></i>Literature</a>
+  <a [routerLink]="['/category/physics']" class="button"><i class="fa fa-atom"></i>Physics</a>
+  <a [routerLink]="['/category/chemistry']" class="button"><i class="fa fa-flask"></i>Chemistry</a>
+  <a [routerLink]="['/category/peace']" class="button"><i class="fa fa-dove"></i>Peace</a>
+  <a [routerLink]="['/category/economics']" class="button"><i class="fa fa-funnel-dollar"></i>Economics</a>
+  <a [routerLink]="['/category/medicine']" class="button"><i class="fa fa-pills"></i>Physiology & Medicine</a>
 </div>
 
-<!-- <div *ngFor="let winner of winners">
+<div *ngFor="let winner of winners">
   <h3>
     <a [title]="winner.firstname + ' ' + winner.surname + ' details'"> {{ winner.firstname }} {{ winner.surname }}</a>
   </h3>
-  <p> Born: {{winner.born}}, {{winner.bornCountry}} </p>
-  <p *ngIf="winner.died"> Died: {{winner.died}}, {{winner.diedCountry}} </p>  
-  <p> Gender: {{ winner.gender }} </p>
-
-</div> -->
+  <h4>Prize</h4>
+  <div *ngFor="let prize of winner.prizes">
+    <p> Category: {{ prize.category }} </p>
+    <p> Year: {{ prize.year }} </p>
+    <p *ngIf="prize.motivation">
+      Motivation: {{ prize.motivation }}
+    </p>
+  <div *ngFor="let affiliation of prize.affiliations"> 
+      <p *ngIf="affiliation.name"> Affiliation: {{ affiliation.name }}, {{ affiliation.country }} </p>
+    </div>
+</div>
 
