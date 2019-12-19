@@ -16,11 +16,9 @@
     <p *ngIf="prize.motivation">
       Motivation: {{ prize.motivation }}
     </p>
+    <div *ngFor="let affiliation of prize.affiliations"> 
+      <p *ngIf="affiliation.name"> Affiliation: {{ affiliation.name }}, {{ affiliation.country }} </p>
+    </div>
   </div>
-
-  <!-- <h5>Affiliations</h5>
-  <div *ngFor="let affiliation of winner.affiliations"> 
-      <p> {{ affiliation.name }}, {{ affiliation.country }} </p>
-  </div> -->
 </div>
 
