@@ -1,0 +1,22 @@
+<h2>Winners by Prize Category</h2>
+
+<!-- Make backend API request to retrieve winners -->
+<div class="buttons">
+  <a [routerLink]="['/']" class="button"><i class="fa fa-book"></i>Literature</a>
+  <a [routerLink]="['/']" class="button"><i class="fa fa-atom"></i>Physics</a>
+  <a [routerLink]="['/']" class="button"><i class="fa fa-flask"></i>Chemistry</a>
+  <a [routerLink]="['/']" class="button"><i class="fa fa-dove"></i>Peace</a>
+  <a [routerLink]="['/']" class="button"><i class="fa fa-funnel-dollar"></i>Economics</a>
+  <a [routerLink]="['/']" class="button"><i class="fa fa-pills"></i>Physiology & Medicine</a>
+</div>
+
+<div *ngFor="let winner of winners">
+  <h3>
+    <a [title]="winner.firstname + ' ' + winner.surname + ' details'"> {{ winner.firstname }} {{ winner.surname }}</a>
+  </h3>
+  <p> Born: {{winner.born}}, {{winner.bornCountry}} </p>
+  <p *ngIf="winner.died"> Died: {{winner.died}}, {{winner.diedCountry}} </p>  
+  <p> Gender: {{ winner.gender }} </p>
+
+</div>
+

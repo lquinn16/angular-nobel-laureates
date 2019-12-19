@@ -1,0 +1,26 @@
+<h2>Nobel Prize Winners</h2>
+
+<div *ngFor="let winner of winners">
+  <h3>
+    <a [title]="winner.firstname + ' ' + winner.surname + ' details'"> {{ winner.firstname }} {{ winner.surname }}</a>
+  </h3>
+  <p> Born: {{winner.born}}, {{winner.bornCountry}} </p>
+  <p *ngIf="winner.died"> Died: {{winner.died}}, {{winner.diedCountry}} </p>  
+  <p> Gender: {{ winner.gender }} </p>
+
+  <h4 *ngIf="winner.prizes.length==1">Prize</h4>
+  <h4 *ngIf="winner.prizes.length>1">Prizes</h4>
+  <div *ngFor="let prize of winner.prizes">
+    <p> Category: {{ prize.category }} </p>
+    <p> Year: {{ prize.year }} </p>
+    <p *ngIf="prize.motivation">
+      Motivation: {{ prize.motivation }}
+    </p>
+  </div>
+
+  <!-- <h5>Affiliations</h5>
+  <div *ngFor="let affiliation of winner.affiliations"> 
+      <p> {{ affiliation.name }}, {{ affiliation.country }} </p>
+  </div> -->
+</div>
+
